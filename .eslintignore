@@ -1,0 +1,8 @@
+.cache
+.vscode
+node_modules
+coverage
+public
+**/*.d.ts
+*.config.js
+types/graphql-types.d.ts
