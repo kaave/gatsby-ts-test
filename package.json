@@ -21,7 +21,8 @@
     "lint-staged": "lint-staged",
     "lint:script": "eslint '**/*.{js,ts,tsx}'",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "typecheck": "tsc --noEmit -p tsconfig.json"
+    "typecheck": "tsc --noEmit -p tsconfig.json",
+    "typo": "cspell 'src/**/*.{css,ts,tsx}'"
   },
   "husky": {
     "hooks": {
@@ -45,6 +46,7 @@
     "@typescript-eslint/eslint-plugin": "^2.11.0",
     "@typescript-eslint/parser": "^2.11.0",
     "cross-env": "^6.0.3",
+    "cspell": "^4.0.37",
     "eslint": "^6.7.2",
     "eslint-config-airbnb": "^18.0.1",
     "eslint-config-prettier": "^6.7.0",
