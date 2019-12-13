@@ -1,6 +1,8 @@
 import * as React from 'react';
 import Link from 'gatsby-link';
 
+import styles from './index.module.scss';
+
 // Please note that you can use https://github.com/dotansimha/graphql-code-generator
 // to generate all types from graphQL schema
 interface Props {
@@ -15,7 +17,7 @@ interface Props {
 
 const Index = (props: Props) => (
   <div>
-    <h1>Hi people</h1>
+    <h1 className={styles.Header}>Hi people</h1>
     <p>
       Welcome to your new <strong>{props?.data?.site?.siteMetadata?.title || ''}</strong> site.
     </p>

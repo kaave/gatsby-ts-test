@@ -1,8 +1,35 @@
+const packageImporter = require('node-sass-package-importer');
+const postcssCustomProperties = require('postcss-custom-properties');
+const postcssColorHexAlpha = require('postcss-color-hex-alpha');
+const postcssInitial = require('postcss-initial');
+const postcssImageSetFunction = require('postcss-image-set-function');
+const postcssCalc = require('postcss-calc');
+const postcssFlexbugsFixes = require('postcss-flexbugs-fixes');
+const postcssUrl = require('postcss-url');
+const autoprefixer = require('autoprefixer');
+
 module.exports = {
   siteMetadata: {
     title: 'Gatsby Typescript Starter',
   },
   plugins: [
+    {
+      resolve: 'gatsby-plugin-sass',
+      options: {
+        importer: packageImporter(),
+        postCssPlugins: [
+          postcssCustomProperties(),
+          postcssColorHexAlpha(),
+          postcssInitial(),
+          postcssImageSetFunction(),
+          postcssCalc(),
+          postcssFlexbugsFixes(),
+          postcssUrl(),
+          // autoprefixer({ grid: 'no-autoplace' }),
+          autoprefixer(),
+        ],
+      },
+    },
     'gatsby-plugin-react-helmet',
     // Add typescript stack into webpack
     'gatsby-plugin-typescript',
