@@ -21,7 +21,7 @@
     "lint-staged": "lint-staged",
     "lint:script": "eslint '**/*.{js,ts,tsx}'",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "typecheck": "tsc --noEmit -p tsconfig.json",
+    "typecheck": "tsc --noEmit -p tsconfig.production.json",
     "typo": "cspell 'src/**/*.{css,ts,tsx}'"
   },
   "husky": {
@@ -29,6 +29,15 @@
       "pre-commit": "run-p typecheck lint-staged"
     }
   },
+  "browserslist": [
+    "> 0.5% in jp",
+    "node >= 10",
+    "not ios < 10.3",
+    "not android < 5",
+    "not safari < 10.1",
+    "not chrome 49",
+    "not dead"
+  ],
   "dependencies": {
     "gatsby": "^2.18.11",
     "gatsby-link": "^2.2.27",
