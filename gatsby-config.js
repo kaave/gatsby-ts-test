@@ -44,10 +44,23 @@ module.exports = {
     },
     'gatsby-plugin-sitemap',
     {
-      resolve: `gatsby-plugin-google-analytics`,
+      resolve: 'gatsby-plugin-google-analytics',
       options: {
         // The property ID; the tracking code won't be generated without it
         trackingId: process.env.GA,
+      },
+    },
+    {
+      resolve: 'gatsby-plugin-favicon',
+      options: {
+        android: true,
+        appleIcon: true,
+        appleStartup: true,
+        coast: false,
+        favicons: true,
+        firefox: true,
+        yandex: false,
+        windows: false,
       },
     },
   ],

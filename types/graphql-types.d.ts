@@ -1221,6 +1221,14 @@ export type SitePageFieldsEnum =
   'pluginCreator___version' |
   'pluginCreator___pluginOptions___fileName' |
   'pluginCreator___pluginOptions___trackingId' |
+  'pluginCreator___pluginOptions___android' |
+  'pluginCreator___pluginOptions___appleIcon' |
+  'pluginCreator___pluginOptions___appleStartup' |
+  'pluginCreator___pluginOptions___coast' |
+  'pluginCreator___pluginOptions___favicons' |
+  'pluginCreator___pluginOptions___firefox' |
+  'pluginCreator___pluginOptions___yandex' |
+  'pluginCreator___pluginOptions___windows' |
   'pluginCreator___pluginOptions___path' |
   'pluginCreator___pluginOptions___pathCheck' |
   'pluginCreator___nodeAPIs' |
@@ -1410,6 +1418,14 @@ export type SitePluginFieldsEnum =
   'version' |
   'pluginOptions___fileName' |
   'pluginOptions___trackingId' |
+  'pluginOptions___android' |
+  'pluginOptions___appleIcon' |
+  'pluginOptions___appleStartup' |
+  'pluginOptions___coast' |
+  'pluginOptions___favicons' |
+  'pluginOptions___firefox' |
+  'pluginOptions___yandex' |
+  'pluginOptions___windows' |
   'pluginOptions___path' |
   'pluginOptions___pathCheck' |
   'nodeAPIs' |
@@ -1529,6 +1545,14 @@ export type SitePluginPackageJsonPeerDependenciesFilterListInput = {
 export type SitePluginPluginOptions = {
   fileName?: Maybe<Scalars['String']>,
   trackingId?: Maybe<Scalars['String']>,
+  android?: Maybe<Scalars['Boolean']>,
+  appleIcon?: Maybe<Scalars['Boolean']>,
+  appleStartup?: Maybe<Scalars['Boolean']>,
+  coast?: Maybe<Scalars['Boolean']>,
+  favicons?: Maybe<Scalars['Boolean']>,
+  firefox?: Maybe<Scalars['Boolean']>,
+  yandex?: Maybe<Scalars['Boolean']>,
+  windows?: Maybe<Scalars['Boolean']>,
   path?: Maybe<Scalars['String']>,
   pathCheck?: Maybe<Scalars['Boolean']>,
 };
@@ -1536,6 +1560,14 @@ export type SitePluginPluginOptions = {
 export type SitePluginPluginOptionsFilterInput = {
   fileName?: Maybe<StringQueryOperatorInput>,
   trackingId?: Maybe<StringQueryOperatorInput>,
+  android?: Maybe<BooleanQueryOperatorInput>,
+  appleIcon?: Maybe<BooleanQueryOperatorInput>,
+  appleStartup?: Maybe<BooleanQueryOperatorInput>,
+  coast?: Maybe<BooleanQueryOperatorInput>,
+  favicons?: Maybe<BooleanQueryOperatorInput>,
+  firefox?: Maybe<BooleanQueryOperatorInput>,
+  yandex?: Maybe<BooleanQueryOperatorInput>,
+  windows?: Maybe<BooleanQueryOperatorInput>,
   path?: Maybe<StringQueryOperatorInput>,
   pathCheck?: Maybe<BooleanQueryOperatorInput>,
 };
