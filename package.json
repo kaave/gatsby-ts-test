@@ -42,6 +42,7 @@
     "not dead"
   ],
   "dependencies": {
+    "date-fns": "^2.8.1",
     "gatsby": "^2.18.11",
     "gatsby-image": "^2.2.36",
     "gatsby-link": "^2.2.27",
@@ -53,6 +54,8 @@
     "react-helmet": "^5.2.1"
   },
   "devDependencies": {
+    "@babel/node": "^7.7.4",
+    "@babel/register": "^7.7.4",
     "@storybook/addon-actions": "^5.2.8",
     "@storybook/addon-backgrounds": "^5.2.8",
     "@storybook/addon-info": "^5.2.8",
@@ -70,6 +73,7 @@
     "autoprefixer": "^9.7.3",
     "babel-loader": "^8.0.6",
     "browser-sync": "^2.26.7",
+    "contentful": "^7.11.0",
     "cross-env": "^6.0.3",
     "cspell": "^4.0.37",
     "dotenv": "^8.2.0",
@@ -92,6 +96,7 @@
     "gatsby-plugin-sharp": "^2.3.7",
     "gatsby-plugin-sitemap": "^2.2.24",
     "gatsby-plugin-webpack-bundle-analyzer": "^1.0.5",
+    "gatsby-source-contentful": "^2.1.69",
     "gatsby-source-filesystem": "^2.1.42",
     "gatsby-transformer-sharp": "^2.3.9",
     "husky": "^3.1.0",

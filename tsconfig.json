@@ -22,5 +22,5 @@
         "resolveJsonModule": true,
         "isolatedModules": true
     },
-    "include": ["./src/**/*", "./types"]
+    "include": ["./src", "./tools", "./types"]
 }

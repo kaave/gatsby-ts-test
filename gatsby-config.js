@@ -15,6 +15,9 @@ module.exports = {
   siteMetadata: {
     siteUrl: process.env.SITE_URL,
     title: 'Gatsby Typescript Starter',
+    author: 'kaave',
+    twitter: '@junkjunctions',
+    github: 'kaave',
   },
   plugins: [
     {
@@ -84,6 +87,13 @@ module.exports = {
           },
         ]
       : []),
+    {
+      resolve: 'gatsby-source-contentful',
+      options: {
+        spaceId: process.env.CONTENTFUL_SPACE_ID,
+        accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
+      },
+    },
   ],
   polyfill: false,
 };
