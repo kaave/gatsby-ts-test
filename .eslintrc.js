@@ -75,10 +75,9 @@ module.exports = {
         devDependencies: [
           'gatsby-config.js',
           'test/**',
-          'stories/**/*.stories.*',
           '**/__tests__/**',
           '**/__mocks__/**',
-          '**/*{.,_}{test,spec}.{js,jsx,ts,tsx}',
+          '**/*{.,_}{test,spec,story}.{js,jsx,ts,tsx}',
           '**/*.config.js',
           '**/*.config.*.js',
         ],
