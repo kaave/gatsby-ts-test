@@ -2,7 +2,7 @@ const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
 
 module.exports = ({ config }) => {
   config.module.rules.push({
-    test: /\.tsx?$/,
+    test: /\.[jt]sx?$/,
     use: [
       {
         loader: require.resolve('babel-loader'),

@@ -3,6 +3,7 @@ import { graphql } from 'gatsby';
 import Link from 'gatsby-link';
 
 import { Layout } from '~/layouts/default';
+import { Image } from '~/components/common/Image';
 import styles from './index.module.scss';
 import { IndexQuery } from '../../types/graphql-types';
 
@@ -25,6 +26,7 @@ const Index = ({ data }: Props) => (
   <Layout>
     <div>
       <h1 className={styles.Header}>Hi people</h1>
+      <Image file="coke.png" alt="安部コーラ" />
       <p>
         Welcome to your new <strong>{data?.site?.siteMetadata?.title || ''}</strong> site.
         <br />

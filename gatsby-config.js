@@ -1,3 +1,4 @@
+const path = require('path');
 const packageImporter = require('node-sass-package-importer');
 const postcssCustomProperties = require('postcss-custom-properties');
 const postcssColorHexAlpha = require('postcss-color-hex-alpha');
@@ -50,6 +51,15 @@ module.exports = {
         trackingId: process.env.GA,
       },
     },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: path.join(__dirname, 'src', 'images'),
+        name: 'images',
+      },
+    },
+    'gatsby-transformer-sharp',
+    'gatsby-plugin-sharp',
     {
       resolve: 'gatsby-plugin-favicon',
       options: {
