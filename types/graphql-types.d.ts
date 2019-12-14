@@ -815,8 +815,6 @@ export type QuerySiteArgs = {
   children?: Maybe<NodeFilterListInput>,
   internal?: Maybe<InternalFilterInput>,
   siteMetadata?: Maybe<SiteSiteMetadataFilterInput>,
-  port?: Maybe<IntQueryOperatorInput>,
-  host?: Maybe<StringQueryOperatorInput>,
   polyfill?: Maybe<BooleanQueryOperatorInput>,
   pathPrefix?: Maybe<StringQueryOperatorInput>,
   buildTime?: Maybe<DateQueryOperatorInput>
@@ -885,8 +883,6 @@ export type Site = Node & {
   children: Array<Node>,
   internal: Internal,
   siteMetadata?: Maybe<SiteSiteMetadata>,
-  port?: Maybe<Scalars['Int']>,
-  host?: Maybe<Scalars['String']>,
   polyfill?: Maybe<Scalars['Boolean']>,
   pathPrefix?: Maybe<Scalars['String']>,
   buildTime?: Maybe<Scalars['Date']>,
@@ -1016,8 +1012,6 @@ export type SiteFieldsEnum =
   'internal___type' |
   'siteMetadata___siteUrl' |
   'siteMetadata___title' |
-  'port' |
-  'host' |
   'polyfill' |
   'pathPrefix' |
   'buildTime';
@@ -1028,8 +1022,6 @@ export type SiteFilterInput = {
   children?: Maybe<NodeFilterListInput>,
   internal?: Maybe<InternalFilterInput>,
   siteMetadata?: Maybe<SiteSiteMetadataFilterInput>,
-  port?: Maybe<IntQueryOperatorInput>,
-  host?: Maybe<StringQueryOperatorInput>,
   polyfill?: Maybe<BooleanQueryOperatorInput>,
   pathPrefix?: Maybe<StringQueryOperatorInput>,
   buildTime?: Maybe<DateQueryOperatorInput>,
@@ -1229,6 +1221,8 @@ export type SitePageFieldsEnum =
   'pluginCreator___pluginOptions___firefox' |
   'pluginCreator___pluginOptions___yandex' |
   'pluginCreator___pluginOptions___windows' |
+  'pluginCreator___pluginOptions___production' |
+  'pluginCreator___pluginOptions___disabled' |
   'pluginCreator___pluginOptions___path' |
   'pluginCreator___pluginOptions___pathCheck' |
   'pluginCreator___nodeAPIs' |
@@ -1426,6 +1420,8 @@ export type SitePluginFieldsEnum =
   'pluginOptions___firefox' |
   'pluginOptions___yandex' |
   'pluginOptions___windows' |
+  'pluginOptions___production' |
+  'pluginOptions___disabled' |
   'pluginOptions___path' |
   'pluginOptions___pathCheck' |
   'nodeAPIs' |
@@ -1553,6 +1549,8 @@ export type SitePluginPluginOptions = {
   firefox?: Maybe<Scalars['Boolean']>,
   yandex?: Maybe<Scalars['Boolean']>,
   windows?: Maybe<Scalars['Boolean']>,
+  production?: Maybe<Scalars['Boolean']>,
+  disabled?: Maybe<Scalars['Boolean']>,
   path?: Maybe<Scalars['String']>,
   pathCheck?: Maybe<Scalars['Boolean']>,
 };
@@ -1568,6 +1566,8 @@ export type SitePluginPluginOptionsFilterInput = {
   firefox?: Maybe<BooleanQueryOperatorInput>,
   yandex?: Maybe<BooleanQueryOperatorInput>,
   windows?: Maybe<BooleanQueryOperatorInput>,
+  production?: Maybe<BooleanQueryOperatorInput>,
+  disabled?: Maybe<BooleanQueryOperatorInput>,
   path?: Maybe<StringQueryOperatorInput>,
   pathCheck?: Maybe<BooleanQueryOperatorInput>,
 };

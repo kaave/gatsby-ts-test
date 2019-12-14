@@ -63,5 +63,16 @@ module.exports = {
         windows: false,
       },
     },
+    ...(process.env.ANALYZE
+      ? [
+          {
+            resolve: 'gatsby-plugin-webpack-bundle-analyzer',
+            options: {
+              production: true,
+              disabled: !process.env.ANALYZE,
+            },
+          },
+        ]
+      : []),
   ],
 };
