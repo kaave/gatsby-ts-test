@@ -31,14 +31,8 @@ const Header = () => (
   </div>
 );
 
-interface Props extends React.HTMLProps<HTMLDivElement> {
-  location: {
-    pathname: string;
-  };
-  children: any;
-}
-
-const DefaultLayout = React.memo(({ children }: Props) => (
+type Props = { children: React.ReactNode };
+export const Layout = React.memo(({ children }: Props) => (
   <div>
     <Helmet
       title="Gatsby Default Starter"
@@ -56,9 +50,7 @@ const DefaultLayout = React.memo(({ children }: Props) => (
         paddingTop: 0,
       }}
     >
-      {children()}
+      {children}
     </div>
   </div>
 ));
-
-export default DefaultLayout;

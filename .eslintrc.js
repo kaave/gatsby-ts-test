@@ -73,7 +73,7 @@ module.exports = {
       'error',
       {
         devDependencies: [
-          'gatsby-config.js',
+          'gatsby-*.js',
           'test/**',
           '**/__tests__/**',
           '**/__mocks__/**',
