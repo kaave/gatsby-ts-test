@@ -1009,6 +1009,7 @@ export type SiteFieldsEnum =
   'internal___mediaType' |
   'internal___owner' |
   'internal___type' |
+  'siteMetadata___siteUrl' |
   'siteMetadata___title' |
   'polyfill' |
   'pathPrefix' |
@@ -1528,10 +1529,12 @@ export type SitePluginSortInput = {
 };
 
 export type SiteSiteMetadata = {
+  siteUrl?: Maybe<Scalars['String']>,
   title?: Maybe<Scalars['String']>,
 };
 
 export type SiteSiteMetadataFilterInput = {
+  siteUrl?: Maybe<StringQueryOperatorInput>,
   title?: Maybe<StringQueryOperatorInput>,
 };
 

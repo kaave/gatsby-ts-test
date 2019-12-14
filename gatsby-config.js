@@ -8,8 +8,11 @@ const postcssFlexbugsFixes = require('postcss-flexbugs-fixes');
 const postcssUrl = require('postcss-url');
 const autoprefixer = require('autoprefixer');
 
+require('dotenv').config();
+
 module.exports = {
   siteMetadata: {
+    siteUrl: process.env.SITE_URL,
     title: 'Gatsby Typescript Starter',
   },
   plugins: [
@@ -39,5 +42,6 @@ module.exports = {
         fileName: 'types/graphql-types.d.ts',
       },
     },
+    'gatsby-plugin-sitemap',
   ],
 };
