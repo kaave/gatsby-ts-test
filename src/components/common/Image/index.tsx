@@ -44,14 +44,9 @@ export const Image = ({ file, alt, fadeIn = false, loading = 'auto' }: Props) =>
   const {
     allFile: { images },
   }: ImagesQuery = useStaticQuery(imageQuery);
-  const { node } = React.useMemo(() => images.find(image => image.node.relativePath === file) || { node: undefined }, [
-    file,
-    images,
-  ]);
+  const node = React.useMemo(() => images.find(image => image.node.relativePath === file)?.node, [file, images]);
 
   return node?.childImageSharp ? (
     <Img sizes={node.childImageSharp.sizes as FluidObject} alt={alt} fadeIn={fadeIn} loading={loading} />
-  ) : (
-    <img src="#" alt={alt} />
-  );
+  ) : null;
 };

@@ -2797,6 +2797,8 @@ export type QuerySiteArgs = {
   children?: Maybe<NodeFilterListInput>,
   internal?: Maybe<InternalFilterInput>,
   siteMetadata?: Maybe<SiteSiteMetadataFilterInput>,
+  port?: Maybe<IntQueryOperatorInput>,
+  host?: Maybe<StringQueryOperatorInput>,
   polyfill?: Maybe<BooleanQueryOperatorInput>,
   pathPrefix?: Maybe<StringQueryOperatorInput>,
   buildTime?: Maybe<DateQueryOperatorInput>
@@ -2866,6 +2868,8 @@ export type Site = Node & {
   children: Array<Node>,
   internal: Internal,
   siteMetadata?: Maybe<SiteSiteMetadata>,
+  port?: Maybe<Scalars['Int']>,
+  host?: Maybe<Scalars['String']>,
   polyfill?: Maybe<Scalars['Boolean']>,
   pathPrefix?: Maybe<Scalars['String']>,
   buildTime?: Maybe<Scalars['Date']>,
@@ -2998,6 +3002,8 @@ export type SiteFieldsEnum =
   'siteMetadata___author' |
   'siteMetadata___twitter' |
   'siteMetadata___github' |
+  'port' |
+  'host' |
   'polyfill' |
   'pathPrefix' |
   'buildTime';
@@ -3008,6 +3014,8 @@ export type SiteFilterInput = {
   children?: Maybe<NodeFilterListInput>,
   internal?: Maybe<InternalFilterInput>,
   siteMetadata?: Maybe<SiteSiteMetadataFilterInput>,
+  port?: Maybe<IntQueryOperatorInput>,
+  host?: Maybe<StringQueryOperatorInput>,
   polyfill?: Maybe<BooleanQueryOperatorInput>,
   pathPrefix?: Maybe<StringQueryOperatorInput>,
   buildTime?: Maybe<DateQueryOperatorInput>,
@@ -3183,12 +3191,16 @@ export type SitePageContextSiteSiteMetadata = {
   title?: Maybe<Scalars['String']>,
   siteUrl?: Maybe<Scalars['String']>,
   author?: Maybe<Scalars['String']>,
+  twitter?: Maybe<Scalars['String']>,
+  github?: Maybe<Scalars['String']>,
 };
 
 export type SitePageContextSiteSiteMetadataFilterInput = {
   title?: Maybe<StringQueryOperatorInput>,
   siteUrl?: Maybe<StringQueryOperatorInput>,
   author?: Maybe<StringQueryOperatorInput>,
+  twitter?: Maybe<StringQueryOperatorInput>,
+  github?: Maybe<StringQueryOperatorInput>,
 };
 
 export type SitePageEdge = {
@@ -3296,6 +3308,8 @@ export type SitePageFieldsEnum =
   'context___site___siteMetadata___title' |
   'context___site___siteMetadata___siteUrl' |
   'context___site___siteMetadata___author' |
+  'context___site___siteMetadata___twitter' |
+  'context___site___siteMetadata___github' |
   'pluginCreator___id' |
   'pluginCreator___parent___id' |
   'pluginCreator___parent___parent___id' |
