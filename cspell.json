@@ -1,3 +1,22 @@
 {
-    "words": ["focusring", "textfield", "liga", "clig", "calt", "tnum", "doesn", "webp", "Webp", "palt"]
+    "words": [
+        "focusring",
+        "textfield",
+        "liga",
+        "clig",
+        "calt",
+        "tnum",
+        "doesn",
+        "webp",
+        "Webp",
+        "palt",
+        "kaave",
+        "flexbugs",
+        "junkjunctions",
+        "autoplace",
+        "codegen",
+        "favicons",
+        "yandex"
+    ],
+    "ignorePaths": ["**/*.d.ts"]
 }

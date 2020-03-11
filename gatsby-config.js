@@ -14,7 +14,7 @@ require('dotenv').config();
 module.exports = {
   siteMetadata: {
     siteUrl: process.env.SITE_URL,
-    title: 'Gatsby Typescript Starter',
+    title: 'Gatsby TypeScript @kaave Starter',
     author: 'kaave',
     twitter: '@junkjunctions',
     github: 'kaave',
