@@ -15,6 +15,21 @@ export const pageQuery = graphql`
         siteUrl
       }
     }
+    allContentfulPost {
+      edges {
+        node {
+          id
+          title
+          published
+          thumbnail {
+            fixed {
+              src
+              srcSetWebp
+            }
+          }
+        }
+      }
+    }
   }
 `;
 
@@ -34,6 +49,13 @@ const Index = ({ data }: Props) => (
       </p>
       <p>Now go build something great.</p>
       <Link to="/page-2/">Go to page 2</Link>
+      {data.allContentfulPost.edges.map(({ node }) => (
+        <>
+          {node.id}
+          {node.title}
+          {node.published}
+        </>
+      ))}
     </div>
   </Layout>
 );

@@ -16,6 +16,7 @@
         "autoplace",
         "codegen",
         "favicons",
+        "contentful",
         "yandex"
     ],
     "ignorePaths": ["**/*.d.ts"]
