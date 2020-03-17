@@ -17,7 +17,8 @@
         "codegen",
         "favicons",
         "contentful",
-        "yandex"
+        "yandex",
+        "docgen"
     ],
     "ignorePaths": ["**/*.d.ts"]
 }

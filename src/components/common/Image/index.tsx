@@ -3,6 +3,8 @@ import { graphql, useStaticQuery } from 'gatsby';
 import Img, { FluidObject } from 'gatsby-image';
 import { ImagesQuery } from '@/types/graphql-types';
 
+import styles from './index.module.scss';
+
 export const imageQuery = graphql`
   query Images {
     allFile {
@@ -47,6 +49,12 @@ export const Image = ({ file, alt, fadeIn = false, loading = 'auto' }: Props) =>
   const node = React.useMemo(() => images.find(image => image.node.relativePath === file)?.node, [file, images]);
 
   return node?.childImageSharp ? (
-    <Img sizes={node.childImageSharp.sizes as FluidObject} alt={alt} fadeIn={fadeIn} loading={loading} />
+    <Img
+      className={styles}
+      sizes={node.childImageSharp.sizes as FluidObject}
+      alt={alt}
+      fadeIn={fadeIn}
+      loading={loading}
+    />
   ) : null;
 };
