@@ -17,8 +17,14 @@
         "codegen",
         "favicons",
         "contentful",
+        "stylelint",
         "yandex",
-        "docgen"
+        "docgen",
+        "Ipad",
+        "Hiragino",
+        "Kaku",
+        "Meiryo",
+        "Mincho"
     ],
     "ignorePaths": ["**/*.d.ts"]
 }

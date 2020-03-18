@@ -40,7 +40,7 @@ type Props = {
 const Index = ({ data }: Props) => (
   <Layout>
     <div>
-      <h1 className={styles.Header}>Hi people</h1>
+      <h2 className={styles.Header}>Hi people</h2>
       <Image file="coke.png" alt="安部コーラ" />
       <p>
         Welcome to your new <strong>{data?.site?.siteMetadata?.title || ''}</strong> site.

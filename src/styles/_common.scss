@@ -1,0 +1,42 @@
+.-hidden-pc {
+    @include notSp {
+        display: none !important;
+    }
+}
+
+.-hidden-sp {
+    @include sp {
+        display: none !important;
+    }
+}
+
+.-sr-only {
+    position: absolute !important;
+    width: 1px !important;
+    height: 1px !important;
+    padding: 0 !important;
+    margin: -1px !important;
+    overflow: hidden !important;
+    clip: rect(0, 0, 0, 0) !important;
+    border: 0 !important;
+}
+
+html {
+    font-size: 62.5%;
+    line-height: 1.4;
+    letter-spacing: 0.05em;
+    font-feature-settings: "palt";
+}
+
+body {
+    font-size: 1.4rem;
+}
+
+// stylelint-disable-next-line selector-max-specificity
+#___gatsby {
+    width: 100%;
+}
+
+#gatsby-focus-wrapper {
+    width: 100%;
+}

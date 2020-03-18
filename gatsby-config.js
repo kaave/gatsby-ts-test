@@ -14,10 +14,10 @@ require('dotenv').config();
 module.exports = {
   siteMetadata: {
     siteUrl: process.env.SITE_URL,
-    title: 'Gatsby TypeScript @kaave Starter',
-    author: 'kaave',
-    twitter: '@junkjunctions',
-    github: 'kaave',
+    title: process.env.SITE_TITLE,
+    author: process.env.AUTHOR_NAME,
+    twitter: process.env.AUTHOR_TWITTER,
+    github: process.env.AUTHOR_GITHUB,
   },
   plugins: [
     {
@@ -47,13 +47,17 @@ module.exports = {
       },
     },
     'gatsby-plugin-sitemap',
-    {
-      resolve: 'gatsby-plugin-google-analytics',
-      options: {
-        // The property ID; the tracking code won't be generated without it
-        trackingId: process.env.GA,
-      },
-    },
+    ...(process.env.GOOGLE_ANALYTICS
+      ? [
+          {
+            resolve: 'gatsby-plugin-google-analytics',
+            options: {
+              // The property ID; the tracking code won't be generated without it
+              trackingId: process.env.GOOGLE_ANALYTICS,
+            },
+          },
+        ]
+      : []),
     {
       resolve: `gatsby-source-filesystem`,
       options: {
