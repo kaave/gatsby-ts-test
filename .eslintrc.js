@@ -52,6 +52,8 @@ module.exports = {
         ],
       },
     ],
+    // yoda記法をrangeに限り有効化
+    yoda: ['error', 'never', { exceptRange: true }],
     // default exportを押す 無効化
     'import/prefer-default-export': 'off',
     // ~が機能しないため外す
