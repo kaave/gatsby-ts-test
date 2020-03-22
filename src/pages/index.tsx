@@ -2,10 +2,10 @@ import * as React from 'react';
 import { graphql } from 'gatsby';
 import Link from 'gatsby-link';
 
-import { Layout } from '~/layouts/default';
-import { Image } from '~/components/common/Image';
+import { Layout } from '@templates/layouts/default';
+import { Image } from '@components/shares/Image';
+import { IndexQuery } from '@gql';
 import styles from './index.module.scss';
-import { IndexQuery } from '../../types/graphql-types';
 
 export const pageQuery = graphql`
   query Index {

@@ -2,8 +2,8 @@ import * as React from 'react';
 import { graphql } from 'gatsby';
 import Link from 'gatsby-link';
 
-import { Layout } from '~/layouts/default';
-import { PageTwoQuery } from '../../types/graphql-types';
+import { Layout } from '@templates/layouts/default';
+import { PageTwoQuery } from '@gql';
 
 export const pageQuery = graphql`
   query PageTwo {

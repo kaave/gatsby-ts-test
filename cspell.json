@@ -24,7 +24,8 @@
         "Hiragino",
         "Kaku",
         "Meiryo",
-        "Mincho"
+        "Mincho",
+        "mixins"
     ],
     "ignorePaths": ["**/*.d.ts"]
 }

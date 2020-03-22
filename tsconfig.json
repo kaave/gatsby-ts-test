@@ -12,8 +12,14 @@
         "moduleResolution": "node",
         "baseUrl": ".",
         "paths": {
-            "~/*": ["./src/*"],
-            "@/*": ["./*"]
+            "@gql": ["./types/graphql-types.d.ts"],
+            "@templates/*": ["./src/templates/*"],
+            "@styles/*": ["./src/styles/*"],
+            "@pages/*": ["./src/pages/*"],
+            "@domains/*": ["./src/domains/*"],
+            "@components/*": ["./src/components/*"],
+            "@/*": ["./*"],
+            "~/*": ["./src/*"]
         },
         "allowSyntheticDefaultImports": true,
         "esModuleInterop": true,

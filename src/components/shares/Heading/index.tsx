@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import { SectionLevel } from '~/models/valueObjects/SectionLevel';
+import { SectionLevel } from '@domains/valueObjects/SectionLevel';
 
 type Props = {
   level: SectionLevel;

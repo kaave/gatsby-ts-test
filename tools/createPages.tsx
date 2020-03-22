@@ -1,7 +1,7 @@
 import path from 'path';
 import { GatsbyNode } from 'gatsby';
 import { format } from 'date-fns';
-import { ContentfulPostConnection, ContentfulPost, SiteSiteMetadata } from '../types/graphql-types';
+import { ContentfulPostConnection, ContentfulPost, SiteSiteMetadata } from '@gql';
 
 type Result = {
   site: SiteSiteMetadata;
