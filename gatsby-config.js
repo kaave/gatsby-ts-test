@@ -47,6 +47,7 @@ module.exports = {
       },
     },
     'gatsby-plugin-sitemap',
+    'gatsby-plugin-robots-txt',
     ...(process.env.GOOGLE_ANALYTICS
       ? [
           {
