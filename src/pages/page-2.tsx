@@ -1,8 +1,8 @@
 import * as React from 'react';
-import { graphql } from 'gatsby';
+import { graphql, PageProps } from 'gatsby';
 import Link from 'gatsby-link';
 
-import { Layout } from '@templates/layouts/default';
+import { Layout } from '@templates/layouts/Default';
 import { PageTwoQuery } from '@gql';
 
 export const pageQuery = graphql`
@@ -15,11 +15,9 @@ export const pageQuery = graphql`
   }
 `;
 
-type Props = {
-  data: PageTwoQuery;
-};
+type Props = PageProps<PageTwoQuery>;
 
-const SecondPage = ({ data }: Props) => (
+const Page = ({ data }: Props) => (
   <Layout>
     <div>
       <h1>Hi from the second page on {data.site?.siteMetadata?.title}</h1>
@@ -29,4 +27,4 @@ const SecondPage = ({ data }: Props) => (
   </Layout>
 );
 
-export default SecondPage;
+export default Page;

@@ -2,9 +2,10 @@ import * as React from 'react';
 import { graphql } from 'gatsby';
 import Link from 'gatsby-link';
 
-import { Layout } from '@templates/layouts/default';
+import { Layout } from '@templates/layouts/Default';
 import { Image } from '@components/shares/Image';
 import { IndexQuery } from '@gql';
+import { createPostUrl } from '@domains/valueObjects/PostUrl';
 import styles from './index.module.scss';
 
 export const pageQuery = graphql`
@@ -37,7 +38,7 @@ type Props = {
   data: IndexQuery;
 };
 
-const Index = ({ data }: Props) => (
+const Page = ({ data }: Props) => (
   <Layout>
     <div>
       <h2 className={styles.Header}>Hi people</h2>
@@ -49,15 +50,15 @@ const Index = ({ data }: Props) => (
       </p>
       <p>Now go build something great.</p>
       <Link to="/page-2/">Go to page 2</Link>
-      {data.allContentfulPost.edges.map(({ node }) => (
-        <>
-          {node.id}
-          {node.title}
-          {node.published}
-        </>
-      ))}
+      <ul>
+        {data.allContentfulPost.edges.map(({ node }) => (
+          <li key={node.id}>
+            <Link to={createPostUrl(node.published)}>{node.title}</Link>
+          </li>
+        ))}
+      </ul>
     </div>
   </Layout>
 );
 
-export default Index;
+export default Page;

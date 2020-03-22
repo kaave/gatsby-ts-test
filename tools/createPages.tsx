@@ -3,13 +3,17 @@ import { GatsbyNode } from 'gatsby';
 import { format } from 'date-fns';
 import { ContentfulPostConnection, ContentfulPost, SiteSiteMetadata } from '@gql';
 
+type Site = {
+  siteMetadata: SiteSiteMetadata;
+};
+
 type Result = {
-  site: SiteSiteMetadata;
+  site: Site;
   allContentfulPost: ContentfulPostConnection;
 };
 
 export type PostContext = {
-  site: SiteSiteMetadata;
+  site: Site;
   post: ContentfulPost;
 };
 
@@ -57,11 +61,11 @@ export const createPages: GatsbyNode['createPages'] = async ({ graphql, actions:
     site,
     allContentfulPost: { edges },
   } = result.data;
-  const postTemplate = path.resolve('./src/templates/post.tsx');
+  const postTemplate = path.join(__dirname, '..', 'src', 'templates', 'Post', 'index.tsx');
 
   edges.forEach(({ node: post }) => {
     createPage<PostContext>({
-      path: `/posts/${format(new Date(post.published), 'yyyyMMdd')}/`,
+      path: path.join('posts', format(new Date(post.published), 'yyyyMMdd')),
       component: postTemplate,
       context: { post, site },
     });
