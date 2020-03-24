@@ -81,6 +81,17 @@ module.exports = {
         windows: false,
       },
     },
+    {
+      resolve: `gatsby-transformer-remark`,
+      options: {
+        plugins: [
+          {
+            resolve: `gatsby-remark-prismjs`,
+            options: {},
+          },
+        ],
+      },
+    },
     ...(process.env.ANALYZE
       ? [
           {

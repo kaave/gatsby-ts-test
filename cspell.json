@@ -25,7 +25,9 @@
         "Kaku",
         "Meiryo",
         "Mincho",
-        "mixins"
+        "mixins",
+        "prismjs",
+        "monokai"
     ],
-    "ignorePaths": ["**/*.d.ts"]
+    "ignorePaths": ["**/*.d.ts", "./src/styles/_prismjs_monokai.scss"]
 }

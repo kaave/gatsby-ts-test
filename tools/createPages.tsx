@@ -34,7 +34,10 @@ const query = `
         title
         published
         post {
-          post
+          childMarkdownRemark {
+            html
+            excerpt
+          }
         }
         thumbnail {
           description
