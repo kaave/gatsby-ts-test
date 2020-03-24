@@ -17,16 +17,20 @@ export const pageQuery = graphql`
       }
     }
     allContentfulPost {
-      edges {
-        node {
-          id
-          title
-          published
-          thumbnail {
-            fixed {
-              src
-              srcSetWebp
-            }
+      nodes {
+        id
+        title
+        published
+        post {
+          post
+        }
+        thumbnail {
+          description
+          fixed {
+            src
+            srcSetWebp
+            srcSet
+            aspectRatio
           }
         }
       }
@@ -51,7 +55,7 @@ const Page = ({ data }: Props) => (
       <p>Now go build something great.</p>
       <Link to="/page-2/">Go to page 2</Link>
       <ul>
-        {data.allContentfulPost.edges.map(({ node }) => (
+        {data.allContentfulPost.nodes.map(node => (
           <li key={node.id}>
             <Link to={createPostUrl(node.published)}>{node.title}</Link>
           </li>

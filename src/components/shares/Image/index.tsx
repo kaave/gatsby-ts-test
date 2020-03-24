@@ -21,12 +21,11 @@ export const imageQuery = graphql`
               width
               height
             }
-            sizes(webpQuality: 75, jpegQuality: 75, pngQuality: 75) {
+            fluid(webpQuality: 75, jpegQuality: 75, pngQuality: 75) {
               src
               srcSet
               srcSetWebp
               aspectRatio
-              sizes
             }
           }
         }
@@ -51,7 +50,7 @@ export const Image = ({ file, alt, fadeIn = false, loading = 'auto' }: Props) =>
   return node?.childImageSharp ? (
     <Img
       className={styles}
-      sizes={node.childImageSharp.sizes as FluidObject}
+      sizes={node.childImageSharp.fluid as FluidObject}
       alt={alt}
       fadeIn={fadeIn}
       loading={loading}

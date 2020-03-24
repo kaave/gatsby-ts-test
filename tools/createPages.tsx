@@ -29,23 +29,20 @@ const query = `
       }
     }
     allContentfulPost {
-      edges {
-        node {
-          title
-          post {
-            nodeType
-            json
-          }
-          published
-          thumbnail {
-            description
-            sizes {
-              src
-              srcSetWebp
-              srcSet
-              aspectRatio
-              sizes
-            }
+      nodes {
+        id
+        title
+        published
+        post {
+          post
+        }
+        thumbnail {
+          description
+          fixed {
+            src
+            srcSetWebp
+            srcSet
+            aspectRatio
           }
         }
       }
@@ -59,15 +56,15 @@ export const createPages: GatsbyNode['createPages'] = async ({ graphql, actions:
 
   const {
     site,
-    allContentfulPost: { edges },
+    allContentfulPost: { nodes },
   } = result.data;
   const postTemplate = path.join(__dirname, '..', 'src', 'templates', 'Post', 'index.tsx');
 
-  edges.forEach(({ node: post }) => {
+  nodes.forEach(node => {
     createPage<PostContext>({
-      path: path.join('posts', format(new Date(post.published), 'yyyyMMdd')),
+      path: path.join('posts', format(new Date(node.published), 'yyyyMMdd')),
       component: postTemplate,
-      context: { post, site },
+      context: { post: node, site },
     });
   });
 };

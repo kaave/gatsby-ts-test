@@ -562,14 +562,14 @@ export type ContentfulPost = Node & {
   published?: Maybe<Scalars['Date']>;
   title?: Maybe<Scalars['String']>;
   thumbnail?: Maybe<ContentfulAsset>;
-  post?: Maybe<ContentfulPostPostRichTextNode>;
+  post?: Maybe<ContentfulPostPostTextNode>;
   spaceId?: Maybe<Scalars['String']>;
   contentful_id?: Maybe<Scalars['String']>;
   createdAt?: Maybe<Scalars['Date']>;
   updatedAt?: Maybe<Scalars['Date']>;
   sys?: Maybe<ContentfulPostSys>;
   node_locale?: Maybe<Scalars['String']>;
-  childContentfulPostPostRichTextNode?: Maybe<ContentfulPostPostRichTextNode>;
+  childContentfulPostPostTextNode?: Maybe<ContentfulPostPostTextNode>;
 };
 
 
@@ -836,15 +836,7 @@ export type ContentfulPostFieldsEnum =
   'post___internal___mediaType' |
   'post___internal___owner' |
   'post___internal___type' |
-  'post___content' |
-  'post___content___content' |
-  'post___content___content___marks' |
-  'post___content___content___value' |
-  'post___content___content___nodeType' |
-  'post___content___nodeType' |
-  'post___nodeType' |
   'post___post' |
-  'post___json' |
   'spaceId' |
   'contentful_id' |
   'createdAt' |
@@ -855,53 +847,45 @@ export type ContentfulPostFieldsEnum =
   'sys___contentType___sys___id' |
   'sys___contentType___sys___contentful_id' |
   'node_locale' |
-  'childContentfulPostPostRichTextNode___id' |
-  'childContentfulPostPostRichTextNode___parent___id' |
-  'childContentfulPostPostRichTextNode___parent___parent___id' |
-  'childContentfulPostPostRichTextNode___parent___parent___children' |
-  'childContentfulPostPostRichTextNode___parent___children' |
-  'childContentfulPostPostRichTextNode___parent___children___id' |
-  'childContentfulPostPostRichTextNode___parent___children___children' |
-  'childContentfulPostPostRichTextNode___parent___internal___content' |
-  'childContentfulPostPostRichTextNode___parent___internal___contentDigest' |
-  'childContentfulPostPostRichTextNode___parent___internal___description' |
-  'childContentfulPostPostRichTextNode___parent___internal___fieldOwners' |
-  'childContentfulPostPostRichTextNode___parent___internal___ignoreType' |
-  'childContentfulPostPostRichTextNode___parent___internal___mediaType' |
-  'childContentfulPostPostRichTextNode___parent___internal___owner' |
-  'childContentfulPostPostRichTextNode___parent___internal___type' |
-  'childContentfulPostPostRichTextNode___children' |
-  'childContentfulPostPostRichTextNode___children___id' |
-  'childContentfulPostPostRichTextNode___children___parent___id' |
-  'childContentfulPostPostRichTextNode___children___parent___children' |
-  'childContentfulPostPostRichTextNode___children___children' |
-  'childContentfulPostPostRichTextNode___children___children___id' |
-  'childContentfulPostPostRichTextNode___children___children___children' |
-  'childContentfulPostPostRichTextNode___children___internal___content' |
-  'childContentfulPostPostRichTextNode___children___internal___contentDigest' |
-  'childContentfulPostPostRichTextNode___children___internal___description' |
-  'childContentfulPostPostRichTextNode___children___internal___fieldOwners' |
-  'childContentfulPostPostRichTextNode___children___internal___ignoreType' |
-  'childContentfulPostPostRichTextNode___children___internal___mediaType' |
-  'childContentfulPostPostRichTextNode___children___internal___owner' |
-  'childContentfulPostPostRichTextNode___children___internal___type' |
-  'childContentfulPostPostRichTextNode___internal___content' |
-  'childContentfulPostPostRichTextNode___internal___contentDigest' |
-  'childContentfulPostPostRichTextNode___internal___description' |
-  'childContentfulPostPostRichTextNode___internal___fieldOwners' |
-  'childContentfulPostPostRichTextNode___internal___ignoreType' |
-  'childContentfulPostPostRichTextNode___internal___mediaType' |
-  'childContentfulPostPostRichTextNode___internal___owner' |
-  'childContentfulPostPostRichTextNode___internal___type' |
-  'childContentfulPostPostRichTextNode___content' |
-  'childContentfulPostPostRichTextNode___content___content' |
-  'childContentfulPostPostRichTextNode___content___content___marks' |
-  'childContentfulPostPostRichTextNode___content___content___value' |
-  'childContentfulPostPostRichTextNode___content___content___nodeType' |
-  'childContentfulPostPostRichTextNode___content___nodeType' |
-  'childContentfulPostPostRichTextNode___nodeType' |
-  'childContentfulPostPostRichTextNode___post' |
-  'childContentfulPostPostRichTextNode___json';
+  'childContentfulPostPostTextNode___id' |
+  'childContentfulPostPostTextNode___parent___id' |
+  'childContentfulPostPostTextNode___parent___parent___id' |
+  'childContentfulPostPostTextNode___parent___parent___children' |
+  'childContentfulPostPostTextNode___parent___children' |
+  'childContentfulPostPostTextNode___parent___children___id' |
+  'childContentfulPostPostTextNode___parent___children___children' |
+  'childContentfulPostPostTextNode___parent___internal___content' |
+  'childContentfulPostPostTextNode___parent___internal___contentDigest' |
+  'childContentfulPostPostTextNode___parent___internal___description' |
+  'childContentfulPostPostTextNode___parent___internal___fieldOwners' |
+  'childContentfulPostPostTextNode___parent___internal___ignoreType' |
+  'childContentfulPostPostTextNode___parent___internal___mediaType' |
+  'childContentfulPostPostTextNode___parent___internal___owner' |
+  'childContentfulPostPostTextNode___parent___internal___type' |
+  'childContentfulPostPostTextNode___children' |
+  'childContentfulPostPostTextNode___children___id' |
+  'childContentfulPostPostTextNode___children___parent___id' |
+  'childContentfulPostPostTextNode___children___parent___children' |
+  'childContentfulPostPostTextNode___children___children' |
+  'childContentfulPostPostTextNode___children___children___id' |
+  'childContentfulPostPostTextNode___children___children___children' |
+  'childContentfulPostPostTextNode___children___internal___content' |
+  'childContentfulPostPostTextNode___children___internal___contentDigest' |
+  'childContentfulPostPostTextNode___children___internal___description' |
+  'childContentfulPostPostTextNode___children___internal___fieldOwners' |
+  'childContentfulPostPostTextNode___children___internal___ignoreType' |
+  'childContentfulPostPostTextNode___children___internal___mediaType' |
+  'childContentfulPostPostTextNode___children___internal___owner' |
+  'childContentfulPostPostTextNode___children___internal___type' |
+  'childContentfulPostPostTextNode___internal___content' |
+  'childContentfulPostPostTextNode___internal___contentDigest' |
+  'childContentfulPostPostTextNode___internal___description' |
+  'childContentfulPostPostTextNode___internal___fieldOwners' |
+  'childContentfulPostPostTextNode___internal___ignoreType' |
+  'childContentfulPostPostTextNode___internal___mediaType' |
+  'childContentfulPostPostTextNode___internal___owner' |
+  'childContentfulPostPostTextNode___internal___type' |
+  'childContentfulPostPostTextNode___post';
 
 export type ContentfulPostFilterInput = {
   id?: Maybe<StringQueryOperatorInput>;
@@ -911,14 +895,14 @@ export type ContentfulPostFilterInput = {
   published?: Maybe<DateQueryOperatorInput>;
   title?: Maybe<StringQueryOperatorInput>;
   thumbnail?: Maybe<ContentfulAssetFilterInput>;
-  post?: Maybe<ContentfulPostPostRichTextNodeFilterInput>;
+  post?: Maybe<ContentfulPostPostTextNodeFilterInput>;
   spaceId?: Maybe<StringQueryOperatorInput>;
   contentful_id?: Maybe<StringQueryOperatorInput>;
   createdAt?: Maybe<DateQueryOperatorInput>;
   updatedAt?: Maybe<DateQueryOperatorInput>;
   sys?: Maybe<ContentfulPostSysFilterInput>;
   node_locale?: Maybe<StringQueryOperatorInput>;
-  childContentfulPostPostRichTextNode?: Maybe<ContentfulPostPostRichTextNodeFilterInput>;
+  childContentfulPostPostTextNode?: Maybe<ContentfulPostPostTextNodeFilterInput>;
 };
 
 export type ContentfulPostGroupConnection = {
@@ -930,87 +914,42 @@ export type ContentfulPostGroupConnection = {
   fieldValue?: Maybe<Scalars['String']>;
 };
 
-export type ContentfulPostPostRichTextNode = Node & {
+export type ContentfulPostPostTextNode = Node & {
   id: Scalars['ID'];
   parent?: Maybe<Node>;
   children: Array<Node>;
   internal: Internal;
-  content?: Maybe<Array<Maybe<ContentfulPostPostRichTextNodeContent>>>;
-  nodeType?: Maybe<Scalars['String']>;
   post?: Maybe<Scalars['String']>;
-  json?: Maybe<Scalars['JSON']>;
 };
 
-export type ContentfulPostPostRichTextNodeConnection = {
+export type ContentfulPostPostTextNodeConnection = {
   totalCount: Scalars['Int'];
-  edges: Array<ContentfulPostPostRichTextNodeEdge>;
-  nodes: Array<ContentfulPostPostRichTextNode>;
+  edges: Array<ContentfulPostPostTextNodeEdge>;
+  nodes: Array<ContentfulPostPostTextNode>;
   pageInfo: PageInfo;
   distinct: Array<Scalars['String']>;
-  group: Array<ContentfulPostPostRichTextNodeGroupConnection>;
+  group: Array<ContentfulPostPostTextNodeGroupConnection>;
 };
 
 
-export type ContentfulPostPostRichTextNodeConnectionDistinctArgs = {
-  field: ContentfulPostPostRichTextNodeFieldsEnum;
+export type ContentfulPostPostTextNodeConnectionDistinctArgs = {
+  field: ContentfulPostPostTextNodeFieldsEnum;
 };
 
 
-export type ContentfulPostPostRichTextNodeConnectionGroupArgs = {
+export type ContentfulPostPostTextNodeConnectionGroupArgs = {
   skip?: Maybe<Scalars['Int']>;
   limit?: Maybe<Scalars['Int']>;
-  field: ContentfulPostPostRichTextNodeFieldsEnum;
+  field: ContentfulPostPostTextNodeFieldsEnum;
 };
 
-export type ContentfulPostPostRichTextNodeContent = {
-  content?: Maybe<Array<Maybe<ContentfulPostPostRichTextNodeContentContent>>>;
-  nodeType?: Maybe<Scalars['String']>;
+export type ContentfulPostPostTextNodeEdge = {
+  next?: Maybe<ContentfulPostPostTextNode>;
+  node: ContentfulPostPostTextNode;
+  previous?: Maybe<ContentfulPostPostTextNode>;
 };
 
-export type ContentfulPostPostRichTextNodeContentContent = {
-  marks?: Maybe<Array<Maybe<ContentfulPostPostRichTextNodeContentContentMarks>>>;
-  value?: Maybe<Scalars['String']>;
-  nodeType?: Maybe<Scalars['String']>;
-};
-
-export type ContentfulPostPostRichTextNodeContentContentFilterInput = {
-  marks?: Maybe<ContentfulPostPostRichTextNodeContentContentMarksFilterListInput>;
-  value?: Maybe<StringQueryOperatorInput>;
-  nodeType?: Maybe<StringQueryOperatorInput>;
-};
-
-export type ContentfulPostPostRichTextNodeContentContentFilterListInput = {
-  elemMatch?: Maybe<ContentfulPostPostRichTextNodeContentContentFilterInput>;
-};
-
-export type ContentfulPostPostRichTextNodeContentContentMarks = {
-  type?: Maybe<Scalars['String']>;
-};
-
-export type ContentfulPostPostRichTextNodeContentContentMarksFilterInput = {
-  type?: Maybe<StringQueryOperatorInput>;
-};
-
-export type ContentfulPostPostRichTextNodeContentContentMarksFilterListInput = {
-  elemMatch?: Maybe<ContentfulPostPostRichTextNodeContentContentMarksFilterInput>;
-};
-
-export type ContentfulPostPostRichTextNodeContentFilterInput = {
-  content?: Maybe<ContentfulPostPostRichTextNodeContentContentFilterListInput>;
-  nodeType?: Maybe<StringQueryOperatorInput>;
-};
-
-export type ContentfulPostPostRichTextNodeContentFilterListInput = {
-  elemMatch?: Maybe<ContentfulPostPostRichTextNodeContentFilterInput>;
-};
-
-export type ContentfulPostPostRichTextNodeEdge = {
-  next?: Maybe<ContentfulPostPostRichTextNode>;
-  node: ContentfulPostPostRichTextNode;
-  previous?: Maybe<ContentfulPostPostRichTextNode>;
-};
-
-export type ContentfulPostPostRichTextNodeFieldsEnum = 
+export type ContentfulPostPostTextNodeFieldsEnum = 
   'id' |
   'parent___id' |
   'parent___parent___id' |
@@ -1097,39 +1036,27 @@ export type ContentfulPostPostRichTextNodeFieldsEnum =
   'internal___mediaType' |
   'internal___owner' |
   'internal___type' |
-  'content' |
-  'content___content' |
-  'content___content___marks' |
-  'content___content___marks___type' |
-  'content___content___value' |
-  'content___content___nodeType' |
-  'content___nodeType' |
-  'nodeType' |
-  'post' |
-  'json';
+  'post';
 
-export type ContentfulPostPostRichTextNodeFilterInput = {
+export type ContentfulPostPostTextNodeFilterInput = {
   id?: Maybe<StringQueryOperatorInput>;
   parent?: Maybe<NodeFilterInput>;
   children?: Maybe<NodeFilterListInput>;
   internal?: Maybe<InternalFilterInput>;
-  content?: Maybe<ContentfulPostPostRichTextNodeContentFilterListInput>;
-  nodeType?: Maybe<StringQueryOperatorInput>;
   post?: Maybe<StringQueryOperatorInput>;
-  json?: Maybe<JsonQueryOperatorInput>;
 };
 
-export type ContentfulPostPostRichTextNodeGroupConnection = {
+export type ContentfulPostPostTextNodeGroupConnection = {
   totalCount: Scalars['Int'];
-  edges: Array<ContentfulPostPostRichTextNodeEdge>;
-  nodes: Array<ContentfulPostPostRichTextNode>;
+  edges: Array<ContentfulPostPostTextNodeEdge>;
+  nodes: Array<ContentfulPostPostTextNode>;
   pageInfo: PageInfo;
   field: Scalars['String'];
   fieldValue?: Maybe<Scalars['String']>;
 };
 
-export type ContentfulPostPostRichTextNodeSortInput = {
-  fields?: Maybe<Array<Maybe<ContentfulPostPostRichTextNodeFieldsEnum>>>;
+export type ContentfulPostPostTextNodeSortInput = {
+  fields?: Maybe<Array<Maybe<ContentfulPostPostTextNodeFieldsEnum>>>;
   order?: Maybe<Array<Maybe<SortOrderEnum>>>;
 };
 
@@ -2501,15 +2428,6 @@ export type IntQueryOperatorInput = {
 };
 
 
-export type JsonQueryOperatorInput = {
-  eq?: Maybe<Scalars['JSON']>;
-  ne?: Maybe<Scalars['JSON']>;
-  in?: Maybe<Array<Maybe<Scalars['JSON']>>>;
-  nin?: Maybe<Array<Maybe<Scalars['JSON']>>>;
-  regex?: Maybe<Scalars['JSON']>;
-  glob?: Maybe<Scalars['JSON']>;
-};
-
 /** Node Interface */
 export type Node = {
   id: Scalars['ID'];
@@ -2569,10 +2487,10 @@ export type Query = {
   allSite: SiteConnection;
   imageSharp?: Maybe<ImageSharp>;
   allImageSharp: ImageSharpConnection;
+  contentfulPostPostTextNode?: Maybe<ContentfulPostPostTextNode>;
+  allContentfulPostPostTextNode: ContentfulPostPostTextNodeConnection;
   contentfulAsset?: Maybe<ContentfulAsset>;
   allContentfulAsset: ContentfulAssetConnection;
-  contentfulPostPostRichTextNode?: Maybe<ContentfulPostPostRichTextNode>;
-  allContentfulPostPostRichTextNode: ContentfulPostPostRichTextNodeConnection;
   contentfulPost?: Maybe<ContentfulPost>;
   allContentfulPost: ContentfulPostConnection;
   contentfulContentType?: Maybe<ContentfulContentType>;
@@ -2752,6 +2670,23 @@ export type QueryAllImageSharpArgs = {
 };
 
 
+export type QueryContentfulPostPostTextNodeArgs = {
+  id?: Maybe<StringQueryOperatorInput>;
+  parent?: Maybe<NodeFilterInput>;
+  children?: Maybe<NodeFilterListInput>;
+  internal?: Maybe<InternalFilterInput>;
+  post?: Maybe<StringQueryOperatorInput>;
+};
+
+
+export type QueryAllContentfulPostPostTextNodeArgs = {
+  filter?: Maybe<ContentfulPostPostTextNodeFilterInput>;
+  sort?: Maybe<ContentfulPostPostTextNodeSortInput>;
+  skip?: Maybe<Scalars['Int']>;
+  limit?: Maybe<Scalars['Int']>;
+};
+
+
 export type QueryContentfulAssetArgs = {
   id?: Maybe<StringQueryOperatorInput>;
   parent?: Maybe<NodeFilterInput>;
@@ -2778,26 +2713,6 @@ export type QueryAllContentfulAssetArgs = {
 };
 
 
-export type QueryContentfulPostPostRichTextNodeArgs = {
-  id?: Maybe<StringQueryOperatorInput>;
-  parent?: Maybe<NodeFilterInput>;
-  children?: Maybe<NodeFilterListInput>;
-  internal?: Maybe<InternalFilterInput>;
-  content?: Maybe<ContentfulPostPostRichTextNodeContentFilterListInput>;
-  nodeType?: Maybe<StringQueryOperatorInput>;
-  post?: Maybe<StringQueryOperatorInput>;
-  json?: Maybe<JsonQueryOperatorInput>;
-};
-
-
-export type QueryAllContentfulPostPostRichTextNodeArgs = {
-  filter?: Maybe<ContentfulPostPostRichTextNodeFilterInput>;
-  sort?: Maybe<ContentfulPostPostRichTextNodeSortInput>;
-  skip?: Maybe<Scalars['Int']>;
-  limit?: Maybe<Scalars['Int']>;
-};
-
-
 export type QueryContentfulPostArgs = {
   id?: Maybe<StringQueryOperatorInput>;
   parent?: Maybe<NodeFilterInput>;
@@ -2806,14 +2721,14 @@ export type QueryContentfulPostArgs = {
   published?: Maybe<DateQueryOperatorInput>;
   title?: Maybe<StringQueryOperatorInput>;
   thumbnail?: Maybe<ContentfulAssetFilterInput>;
-  post?: Maybe<ContentfulPostPostRichTextNodeFilterInput>;
+  post?: Maybe<ContentfulPostPostTextNodeFilterInput>;
   spaceId?: Maybe<StringQueryOperatorInput>;
   contentful_id?: Maybe<StringQueryOperatorInput>;
   createdAt?: Maybe<DateQueryOperatorInput>;
   updatedAt?: Maybe<DateQueryOperatorInput>;
   sys?: Maybe<ContentfulPostSysFilterInput>;
   node_locale?: Maybe<StringQueryOperatorInput>;
-  childContentfulPostPostRichTextNode?: Maybe<ContentfulPostPostRichTextNodeFilterInput>;
+  childContentfulPostPostTextNode?: Maybe<ContentfulPostPostTextNodeFilterInput>;
 };
 
 
@@ -3250,105 +3165,51 @@ export type SitePageContextFilterInput = {
 };
 
 export type SitePageContextPost = {
+  id?: Maybe<Scalars['String']>;
   title?: Maybe<Scalars['String']>;
-  post?: Maybe<SitePageContextPostPost>;
   published?: Maybe<Scalars['Date']>;
+  post?: Maybe<SitePageContextPostPost>;
   thumbnail?: Maybe<SitePageContextPostThumbnail>;
 };
 
 export type SitePageContextPostFilterInput = {
+  id?: Maybe<StringQueryOperatorInput>;
   title?: Maybe<StringQueryOperatorInput>;
-  post?: Maybe<SitePageContextPostPostFilterInput>;
   published?: Maybe<DateQueryOperatorInput>;
+  post?: Maybe<SitePageContextPostPostFilterInput>;
   thumbnail?: Maybe<SitePageContextPostThumbnailFilterInput>;
 };
 
 export type SitePageContextPostPost = {
-  nodeType?: Maybe<Scalars['String']>;
-  json?: Maybe<SitePageContextPostPostJson>;
+  post?: Maybe<Scalars['String']>;
 };
 
 export type SitePageContextPostPostFilterInput = {
-  nodeType?: Maybe<StringQueryOperatorInput>;
-  json?: Maybe<SitePageContextPostPostJsonFilterInput>;
-};
-
-export type SitePageContextPostPostJson = {
-  content?: Maybe<Array<Maybe<SitePageContextPostPostJsonContent>>>;
-  nodeType?: Maybe<Scalars['String']>;
-};
-
-export type SitePageContextPostPostJsonContent = {
-  content?: Maybe<Array<Maybe<SitePageContextPostPostJsonContentContent>>>;
-  nodeType?: Maybe<Scalars['String']>;
-};
-
-export type SitePageContextPostPostJsonContentContent = {
-  marks?: Maybe<Array<Maybe<SitePageContextPostPostJsonContentContentMarks>>>;
-  value?: Maybe<Scalars['String']>;
-  nodeType?: Maybe<Scalars['String']>;
-};
-
-export type SitePageContextPostPostJsonContentContentFilterInput = {
-  marks?: Maybe<SitePageContextPostPostJsonContentContentMarksFilterListInput>;
-  value?: Maybe<StringQueryOperatorInput>;
-  nodeType?: Maybe<StringQueryOperatorInput>;
-};
-
-export type SitePageContextPostPostJsonContentContentFilterListInput = {
-  elemMatch?: Maybe<SitePageContextPostPostJsonContentContentFilterInput>;
-};
-
-export type SitePageContextPostPostJsonContentContentMarks = {
-  type?: Maybe<Scalars['String']>;
-};
-
-export type SitePageContextPostPostJsonContentContentMarksFilterInput = {
-  type?: Maybe<StringQueryOperatorInput>;
-};
-
-export type SitePageContextPostPostJsonContentContentMarksFilterListInput = {
-  elemMatch?: Maybe<SitePageContextPostPostJsonContentContentMarksFilterInput>;
-};
-
-export type SitePageContextPostPostJsonContentFilterInput = {
-  content?: Maybe<SitePageContextPostPostJsonContentContentFilterListInput>;
-  nodeType?: Maybe<StringQueryOperatorInput>;
-};
-
-export type SitePageContextPostPostJsonContentFilterListInput = {
-  elemMatch?: Maybe<SitePageContextPostPostJsonContentFilterInput>;
-};
-
-export type SitePageContextPostPostJsonFilterInput = {
-  content?: Maybe<SitePageContextPostPostJsonContentFilterListInput>;
-  nodeType?: Maybe<StringQueryOperatorInput>;
+  post?: Maybe<StringQueryOperatorInput>;
 };
 
 export type SitePageContextPostThumbnail = {
   description?: Maybe<Scalars['String']>;
-  sizes?: Maybe<SitePageContextPostThumbnailSizes>;
+  fixed?: Maybe<SitePageContextPostThumbnailFixed>;
 };
 
 export type SitePageContextPostThumbnailFilterInput = {
   description?: Maybe<StringQueryOperatorInput>;
-  sizes?: Maybe<SitePageContextPostThumbnailSizesFilterInput>;
+  fixed?: Maybe<SitePageContextPostThumbnailFixedFilterInput>;
 };
 
-export type SitePageContextPostThumbnailSizes = {
+export type SitePageContextPostThumbnailFixed = {
   src?: Maybe<Scalars['String']>;
   srcSetWebp?: Maybe<Scalars['String']>;
   srcSet?: Maybe<Scalars['String']>;
   aspectRatio?: Maybe<Scalars['Float']>;
-  sizes?: Maybe<Scalars['String']>;
 };
 
-export type SitePageContextPostThumbnailSizesFilterInput = {
+export type SitePageContextPostThumbnailFixedFilterInput = {
   src?: Maybe<StringQueryOperatorInput>;
   srcSetWebp?: Maybe<StringQueryOperatorInput>;
   srcSet?: Maybe<StringQueryOperatorInput>;
   aspectRatio?: Maybe<FloatQueryOperatorInput>;
-  sizes?: Maybe<StringQueryOperatorInput>;
 };
 
 export type SitePageContextSite = {
@@ -3474,9 +3335,10 @@ export type SitePageFieldsEnum =
   'internal___owner' |
   'internal___type' |
   'isCreatedByStatefulCreatePages' |
+  'context___post___id' |
   'context___post___title' |
-  'context___post___post___nodeType' |
   'context___post___published' |
+  'context___post___post___post' |
   'context___post___thumbnail___description' |
   'context___site___siteMetadata___title' |
   'context___site___siteMetadata___siteUrl' |
@@ -3935,16 +3797,19 @@ export type ImagesQueryVariables = {};
 
 export type ImagesQuery = { allFile: { images: Array<{ node: (
         Pick<File, 'name' | 'ext' | 'relativePath' | 'size' | 'modifiedTime' | 'changeTime'>
-        & { childImageSharp: Maybe<{ original: Maybe<Pick<ImageSharpOriginal, 'width' | 'height'>>, sizes: Maybe<Pick<ImageSharpSizes, 'src' | 'srcSet' | 'srcSetWebp' | 'aspectRatio' | 'sizes'>> }> }
+        & { childImageSharp: Maybe<{ original: Maybe<Pick<ImageSharpOriginal, 'width' | 'height'>>, fluid: Maybe<Pick<ImageSharpFluid, 'src' | 'srcSet' | 'srcSetWebp' | 'aspectRatio'>> }> }
       ) }> } };
 
 export type IndexQueryVariables = {};
 
 
-export type IndexQuery = { site: Maybe<{ siteMetadata: Maybe<Pick<SiteSiteMetadata, 'title' | 'siteUrl'>> }>, allContentfulPost: { edges: Array<{ node: (
-        Pick<ContentfulPost, 'id' | 'title' | 'published'>
-        & { thumbnail: Maybe<{ fixed: Maybe<Pick<ContentfulFixed, 'src' | 'srcSetWebp'>> }> }
-      ) }> } };
+export type IndexQuery = { site: Maybe<{ siteMetadata: Maybe<Pick<SiteSiteMetadata, 'title' | 'siteUrl'>> }>, allContentfulPost: { nodes: Array<(
+      Pick<ContentfulPost, 'id' | 'title' | 'published'>
+      & { post: Maybe<Pick<ContentfulPostPostTextNode, 'post'>>, thumbnail: Maybe<(
+        Pick<ContentfulAsset, 'description'>
+        & { fixed: Maybe<Pick<ContentfulFixed, 'src' | 'srcSetWebp' | 'srcSet' | 'aspectRatio'>> }
+      )> }
+    )> } };
 
 export type PageTwoQueryVariables = {};
 
