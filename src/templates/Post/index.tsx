@@ -2,19 +2,25 @@ import * as React from 'react';
 import { Link } from 'gatsby';
 
 import { PostContext } from '@/tools/createPages';
+import Img, { FixedObject } from 'gatsby-image';
 
 type Props = {
   pageContext: PostContext;
 };
 
 export default ({ pageContext }: Props) => {
-  console.log(pageContext);
+  // eslint-disable-next-line no-underscore-dangle
+  const __html = pageContext.post.post?.childMarkdownRemark?.html ?? '';
+  const { title, published, thumbnail } = pageContext.post;
 
   return (
     <div>
-      <h1>Author name is {pageContext.site.siteMetadata.author}</h1>
+      {thumbnail?.fixed ? <Img fixed={thumbnail.fixed as FixedObject} alt="" /> : null}
+      <h2>
+        {title} {published}
+      </h2>
       {/* eslint-disable-next-line react/no-danger */}
-      <div dangerouslySetInnerHTML={{ __html: pageContext.post.post?.childMarkdownRemark?.html ?? '' }} />
+      <div dangerouslySetInnerHTML={{ __html }} />
       <ul>
         <li>
           <Link to="/authors/">Back to authors</Link>
