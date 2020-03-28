@@ -4,6 +4,8 @@ import Head from 'react-helmet';
 import { ErrorBoundary } from '@components/shares/ErrorBoundary';
 import { Heading } from '@components/shares/Heading';
 import { toSectionLevel } from '@domains/valueObjects/SectionLevel';
+import { toHelmetMetaProps } from '@domains/services/MetaTagsServices';
+import { MetaInfo } from '@domains/valueObjects/MetaInfo';
 
 const Header = React.memo(() => {
   const sectionLevel = React.useMemo(() => toSectionLevel(1), []);
@@ -18,18 +20,16 @@ const Header = React.memo(() => {
 });
 
 type Props = {
+  meta: MetaInfo;
   children: React.ReactNode;
-  head?: React.ComponentProps<typeof Head>;
 };
 
-export const Layout = React.memo(({ head, children }: Props) => {
-  return (
-    <ErrorBoundary>
-      {head ? <Head {...head} title={head.title} /> : null}
-      <Header />
-      <main id="main" className="Main" role="main">
-        {children}
-      </main>
-    </ErrorBoundary>
-  );
-});
+export const Layout = ({ meta, children }: Props) => (
+  <ErrorBoundary>
+    {meta ? <Head title={meta.title} htmlAttributes={{ lang: 'ja' }} meta={toHelmetMetaProps(meta)} /> : null}
+    <Header />
+    <main id="main" className="Main" role="main">
+      {children}
+    </main>
+  </ErrorBoundary>
+);

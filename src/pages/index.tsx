@@ -6,6 +6,7 @@ import { Layout } from '@templates/layouts/Default';
 import { Image } from '@components/shares/Image';
 import { IndexQuery } from '@gql';
 import { createPostUrl } from '@domains/valueObjects/PostUrl';
+import { toUrl } from '@domains/valueObjects/Url';
 import styles from './index.module.scss';
 
 export const pageQuery = graphql`
@@ -13,7 +14,9 @@ export const pageQuery = graphql`
     site {
       siteMetadata {
         title
+        description
         siteUrl
+        ogp
       }
     }
     allContentfulPost(sort: { order: DESC, fields: published }) {
@@ -48,7 +51,15 @@ type Props = {
 };
 
 const Page = React.memo(({ data: { allContentfulPost, site } }: Props) => (
-  <Layout head={{ title: site?.siteMetadata?.title ?? '' }}>
+  <Layout
+    meta={{
+      title: site?.siteMetadata?.title ?? '',
+      description: site?.siteMetadata?.description ?? '',
+      image: toUrl(site?.siteMetadata?.ogp ?? ''),
+      url: toUrl(site?.siteMetadata?.siteUrl ?? ''),
+      type: 'website',
+    }}
+  >
     <div>
       <h2 className={styles.Header}>Hi people</h2>
       <Image file="coke.png" alt="安部コーラ" />

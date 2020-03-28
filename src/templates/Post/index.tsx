@@ -4,6 +4,7 @@ import Img, { FixedObject } from 'gatsby-image';
 
 import { createPostPath } from '@domains/valueObjects/PostPath';
 import { PostContext } from '@/tools/createPages';
+import { toUrl } from '@domains/valueObjects/Url';
 import { Layout } from '../layouts/Default';
 
 type Props = {
@@ -11,7 +12,14 @@ type Props = {
 };
 
 const Post = React.memo(({ pageContext: { site, post: { title, post, published, thumbnail }, prev, next } }: Props) => (
-  <Layout head={{ title: `${title ? `${title} | ` : ''}${site.siteMetadata.title}` }}>
+  <Layout
+    meta={{
+      title: `${title ? `${title} | ` : ''}${site.siteMetadata.title}`,
+      description: site.siteMetadata?.description ?? '',
+      image: toUrl(site.siteMetadata?.ogp ?? ''),
+      url: toUrl(site.siteMetadata?.siteUrl ?? ''),
+    }}
+  >
     <article className="Article" id="article">
       {thumbnail?.fixed ? <Img fixed={thumbnail.fixed as FixedObject} alt="" /> : null}
       <h2 className="Article__header">

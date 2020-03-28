@@ -27,7 +27,9 @@ const query = `
     site {
       siteMetadata {
         title
+        description
         siteUrl
+        ogp
         author
         twitter
         github

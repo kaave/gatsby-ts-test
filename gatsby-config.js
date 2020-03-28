@@ -15,6 +15,8 @@ module.exports = {
   siteMetadata: {
     siteUrl: process.env.SITE_URL,
     title: process.env.SITE_TITLE,
+    description: process.env.SITE_DESCRIPTION,
+    ogp: process.env.SITE_OGP,
     author: process.env.AUTHOR_NAME,
     twitter: process.env.AUTHOR_TWITTER,
     github: process.env.AUTHOR_GITHUB,

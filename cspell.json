@@ -27,7 +27,8 @@
         "Mincho",
         "mixins",
         "prismjs",
-        "monokai"
+        "monokai",
+        "noindex"
     ],
     "ignorePaths": ["**/*.d.ts", "./src/styles/_prismjs_monokai.scss"]
 }

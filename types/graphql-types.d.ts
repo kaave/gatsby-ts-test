@@ -3005,8 +3005,6 @@ export type QueryAllSitePageArgs = {
 export type QuerySiteArgs = {
   buildTime?: Maybe<DateQueryOperatorInput>;
   siteMetadata?: Maybe<SiteSiteMetadataFilterInput>;
-  port?: Maybe<IntQueryOperatorInput>;
-  host?: Maybe<StringQueryOperatorInput>;
   polyfill?: Maybe<BooleanQueryOperatorInput>;
   id?: Maybe<StringQueryOperatorInput>;
   parent?: Maybe<NodeFilterInput>;
@@ -3206,8 +3204,6 @@ export type QueryAllSitePluginArgs = {
 export type Site = Node & {
   buildTime?: Maybe<Scalars['Date']>;
   siteMetadata?: Maybe<SiteSiteMetadata>;
-  port?: Maybe<Scalars['Int']>;
-  host?: Maybe<Scalars['String']>;
   polyfill?: Maybe<Scalars['Boolean']>;
   id: Scalars['ID'];
   parent?: Maybe<Node>;
@@ -3408,11 +3404,11 @@ export type SiteFieldsEnum =
   'buildTime' |
   'siteMetadata___siteUrl' |
   'siteMetadata___title' |
+  'siteMetadata___description' |
+  'siteMetadata___ogp' |
   'siteMetadata___author' |
   'siteMetadata___twitter' |
   'siteMetadata___github' |
-  'port' |
-  'host' |
   'polyfill' |
   'id' |
   'parent___id' |
@@ -3504,8 +3500,6 @@ export type SiteFieldsEnum =
 export type SiteFilterInput = {
   buildTime?: Maybe<DateQueryOperatorInput>;
   siteMetadata?: Maybe<SiteSiteMetadataFilterInput>;
-  port?: Maybe<IntQueryOperatorInput>;
-  host?: Maybe<StringQueryOperatorInput>;
   polyfill?: Maybe<BooleanQueryOperatorInput>;
   id?: Maybe<StringQueryOperatorInput>;
   parent?: Maybe<NodeFilterInput>;
@@ -3778,7 +3772,9 @@ export type SitePageContextSiteFilterInput = {
 
 export type SitePageContextSiteSiteMetadata = {
   title?: Maybe<Scalars['String']>;
+  description?: Maybe<Scalars['String']>;
   siteUrl?: Maybe<Scalars['String']>;
+  ogp?: Maybe<Scalars['String']>;
   author?: Maybe<Scalars['String']>;
   twitter?: Maybe<Scalars['String']>;
   github?: Maybe<Scalars['String']>;
@@ -3786,7 +3782,9 @@ export type SitePageContextSiteSiteMetadata = {
 
 export type SitePageContextSiteSiteMetadataFilterInput = {
   title?: Maybe<StringQueryOperatorInput>;
+  description?: Maybe<StringQueryOperatorInput>;
   siteUrl?: Maybe<StringQueryOperatorInput>;
+  ogp?: Maybe<StringQueryOperatorInput>;
   author?: Maybe<StringQueryOperatorInput>;
   twitter?: Maybe<StringQueryOperatorInput>;
   github?: Maybe<StringQueryOperatorInput>;
@@ -3806,7 +3804,9 @@ export type SitePageFieldsEnum =
   'matchPath' |
   'isCreatedByStatefulCreatePages' |
   'context___site___siteMetadata___title' |
+  'context___site___siteMetadata___description' |
   'context___site___siteMetadata___siteUrl' |
+  'context___site___siteMetadata___ogp' |
   'context___site___siteMetadata___author' |
   'context___site___siteMetadata___twitter' |
   'context___site___siteMetadata___github' |
@@ -4358,6 +4358,8 @@ export type SitePluginSortInput = {
 export type SiteSiteMetadata = {
   siteUrl?: Maybe<Scalars['String']>;
   title?: Maybe<Scalars['String']>;
+  description?: Maybe<Scalars['String']>;
+  ogp?: Maybe<Scalars['String']>;
   author?: Maybe<Scalars['String']>;
   twitter?: Maybe<Scalars['String']>;
   github?: Maybe<Scalars['String']>;
@@ -4366,6 +4368,8 @@ export type SiteSiteMetadata = {
 export type SiteSiteMetadataFilterInput = {
   siteUrl?: Maybe<StringQueryOperatorInput>;
   title?: Maybe<StringQueryOperatorInput>;
+  description?: Maybe<StringQueryOperatorInput>;
+  ogp?: Maybe<StringQueryOperatorInput>;
   author?: Maybe<StringQueryOperatorInput>;
   twitter?: Maybe<StringQueryOperatorInput>;
   github?: Maybe<StringQueryOperatorInput>;
@@ -4400,12 +4404,12 @@ export type ImagesQuery = { allFile: { images: Array<{ node: (
 export type NotFoundQueryVariables = {};
 
 
-export type NotFoundQuery = { site: Maybe<{ siteMetadata: Maybe<Pick<SiteSiteMetadata, 'title'>> }> };
+export type NotFoundQuery = { site: Maybe<{ siteMetadata: Maybe<Pick<SiteSiteMetadata, 'title' | 'description' | 'siteUrl' | 'ogp'>> }> };
 
 export type IndexQueryVariables = {};
 
 
-export type IndexQuery = { site: Maybe<{ siteMetadata: Maybe<Pick<SiteSiteMetadata, 'title' | 'siteUrl'>> }>, allContentfulPost: { posts: Array<(
+export type IndexQuery = { site: Maybe<{ siteMetadata: Maybe<Pick<SiteSiteMetadata, 'title' | 'description' | 'siteUrl' | 'ogp'>> }>, allContentfulPost: { posts: Array<(
       Pick<ContentfulPost, 'id' | 'title' | 'published'>
       & { post: Maybe<{ childMarkdownRemark: Maybe<Pick<MarkdownRemark, 'html' | 'excerpt'>> }>, thumbnail: Maybe<(
         Pick<ContentfulAsset, 'description'>
@@ -4416,7 +4420,7 @@ export type IndexQuery = { site: Maybe<{ siteMetadata: Maybe<Pick<SiteSiteMetada
 export type PageTwoQueryVariables = {};
 
 
-export type PageTwoQuery = { site: Maybe<{ siteMetadata: Maybe<Pick<SiteSiteMetadata, 'title'>> }> };
+export type PageTwoQuery = { site: Maybe<{ siteMetadata: Maybe<Pick<SiteSiteMetadata, 'title' | 'description' | 'siteUrl' | 'ogp'>> }> };
 
 export type GatsbyContentfulFixedFragment = Pick<ContentfulFixed, 'base64' | 'width' | 'height' | 'src' | 'srcSet'>;
 
