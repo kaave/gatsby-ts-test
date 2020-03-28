@@ -4394,13 +4394,18 @@ export type ImagesQueryVariables = {};
 
 export type ImagesQuery = { allFile: { images: Array<{ node: (
         Pick<File, 'name' | 'ext' | 'relativePath' | 'size' | 'modifiedTime' | 'changeTime'>
-        & { childImageSharp: Maybe<{ original: Maybe<Pick<ImageSharpOriginal, 'width' | 'height'>>, fluid: Maybe<Pick<ImageSharpFluid, 'src' | 'srcSet' | 'srcSetWebp' | 'aspectRatio'>> }> }
+        & { childImageSharp: Maybe<{ original: Maybe<Pick<ImageSharpOriginal, 'width' | 'height'>>, fluid: Maybe<Pick<ImageSharpFluid, 'src' | 'srcSet' | 'srcSetWebp' | 'aspectRatio' | 'sizes'>> }> }
       ) }> } };
+
+export type NotFoundQueryVariables = {};
+
+
+export type NotFoundQuery = { site: Maybe<{ siteMetadata: Maybe<Pick<SiteSiteMetadata, 'title'>> }> };
 
 export type IndexQueryVariables = {};
 
 
-export type IndexQuery = { site: Maybe<{ siteMetadata: Maybe<Pick<SiteSiteMetadata, 'title' | 'siteUrl'>> }>, allContentfulPost: { nodes: Array<(
+export type IndexQuery = { site: Maybe<{ siteMetadata: Maybe<Pick<SiteSiteMetadata, 'title' | 'siteUrl'>> }>, allContentfulPost: { posts: Array<(
       Pick<ContentfulPost, 'id' | 'title' | 'published'>
       & { post: Maybe<{ childMarkdownRemark: Maybe<Pick<MarkdownRemark, 'html' | 'excerpt'>> }>, thumbnail: Maybe<(
         Pick<ContentfulAsset, 'description'>

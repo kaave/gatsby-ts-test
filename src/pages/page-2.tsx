@@ -17,14 +17,14 @@ export const pageQuery = graphql`
 
 type Props = PageProps<PageTwoQuery>;
 
-const Page = ({ data }: Props) => (
-  <Layout>
+const Page = React.memo(({ data: { site } }: Props) => (
+  <Layout head={{ title: site?.siteMetadata?.title ?? '' }}>
     <div>
-      <h1>Hi from the second page on {data.site?.siteMetadata?.title}</h1>
+      <h1>Hi from the second page on {site?.siteMetadata?.title}</h1>
       <p>Welcome to page 2</p>
       <Link to="/">Go back to the homepage</Link>
     </div>
   </Layout>
-);
+));
 
 export default Page;

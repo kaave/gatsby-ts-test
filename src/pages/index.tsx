@@ -17,7 +17,7 @@ export const pageQuery = graphql`
       }
     }
     allContentfulPost(sort: { order: DESC, fields: published }) {
-      nodes {
+      posts: nodes {
         id
         title
         published
@@ -47,27 +47,27 @@ type Props = {
   data: IndexQuery;
 };
 
-const Page = ({ data }: Props) => (
-  <Layout>
+const Page = React.memo(({ data: { allContentfulPost, site } }: Props) => (
+  <Layout head={{ title: site?.siteMetadata?.title ?? '' }}>
     <div>
       <h2 className={styles.Header}>Hi people</h2>
       <Image file="coke.png" alt="安部コーラ" />
       <p>
-        Welcome to your new <strong>{data?.site?.siteMetadata?.title || ''}</strong> site.
+        Welcome to your new <strong>{site?.siteMetadata?.title || ''}</strong> site.
         <br />
-        url: {data.site?.siteMetadata?.siteUrl || 'unknown'}
+        url: {site?.siteMetadata?.siteUrl || 'unknown'}
       </p>
       <p>Now go build something great.</p>
       <Link to="/page-2/">Go to page 2</Link>
       <ul>
-        {data.allContentfulPost.nodes.map(node => (
-          <li key={node.id}>
-            <Link to={createPostUrl(node.published)}>{node.title}</Link>
+        {allContentfulPost.posts.map(post => (
+          <li key={post.id}>
+            <Link to={createPostUrl(post.published)}>{post.title}</Link>
           </li>
         ))}
       </ul>
     </div>
   </Layout>
-);
+));
 
 export default Page;

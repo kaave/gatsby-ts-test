@@ -26,6 +26,7 @@ export const imageQuery = graphql`
               srcSet
               srcSetWebp
               aspectRatio
+              sizes
             }
           }
         }
@@ -41,7 +42,7 @@ type Props = {
   loading?: 'auto' | 'lazy' | 'eager';
 };
 
-export const Image = ({ file, alt, fadeIn = false, loading = 'auto' }: Props) => {
+export const Image = React.memo(({ file, alt, fadeIn = false, loading = 'auto' }: Props) => {
   const {
     allFile: { images },
   } = useStaticQuery<ImagesQuery>(imageQuery);
@@ -56,4 +57,4 @@ export const Image = ({ file, alt, fadeIn = false, loading = 'auto' }: Props) =>
       loading={loading}
     />
   ) : null;
-};
+});
