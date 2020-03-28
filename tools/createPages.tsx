@@ -1,7 +1,10 @@
 import path from 'path';
 import { GatsbyNode } from 'gatsby';
-import { format } from 'date-fns';
 import { ContentfulPostConnection, ContentfulPost, SiteSiteMetadata } from '@gql';
+
+// @TODO gatsby-node.jsのexports.onCreateWebpackConfig が効いてない
+// import { createPostPath } from '@domains/valueObjects/PostPath';
+import { createPostPath } from '../src/domains/valueObjects/PostPath';
 
 type Site = {
   siteMetadata: SiteSiteMetadata;
@@ -15,6 +18,8 @@ type Result = {
 export type PostContext = {
   site: Site;
   post: ContentfulPost;
+  prev?: ContentfulPost;
+  next?: ContentfulPost;
 };
 
 const query = `
@@ -42,6 +47,8 @@ const query = `
         thumbnail {
           description
           fixed {
+            width
+            height
             src
             srcSetWebp
             srcSet
@@ -63,11 +70,16 @@ export const createPages: GatsbyNode['createPages'] = async ({ graphql, actions:
   } = result.data;
   const postTemplate = path.join(__dirname, '..', 'src', 'templates', 'Post', 'index.tsx');
 
-  nodes.forEach(node => {
+  nodes.forEach((post, i) => {
     createPage<PostContext>({
-      path: path.join('posts', format(new Date(node.published), 'yyyyMMdd')),
+      path: path.join(...createPostPath(post.published).split('/')),
       component: postTemplate,
-      context: { post: node, site },
+      context: {
+        site,
+        post,
+        prev: nodes[i - 1],
+        next: nodes[i + 1],
+      },
     });
   });
 };

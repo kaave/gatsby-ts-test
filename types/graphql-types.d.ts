@@ -569,6 +569,7 @@ export type ContentfulPost = Node & {
   updatedAt?: Maybe<Scalars['Date']>;
   sys?: Maybe<ContentfulPostSys>;
   node_locale?: Maybe<Scalars['String']>;
+  tags?: Maybe<Array<Maybe<Scalars['String']>>>;
   childContentfulPostPostTextNode?: Maybe<ContentfulPostPostTextNode>;
 };
 
@@ -875,6 +876,7 @@ export type ContentfulPostFieldsEnum =
   'sys___contentType___sys___id' |
   'sys___contentType___sys___contentful_id' |
   'node_locale' |
+  'tags' |
   'childContentfulPostPostTextNode___id' |
   'childContentfulPostPostTextNode___parent___id' |
   'childContentfulPostPostTextNode___parent___parent___id' |
@@ -958,6 +960,7 @@ export type ContentfulPostFilterInput = {
   updatedAt?: Maybe<DateQueryOperatorInput>;
   sys?: Maybe<ContentfulPostSysFilterInput>;
   node_locale?: Maybe<StringQueryOperatorInput>;
+  tags?: Maybe<StringQueryOperatorInput>;
   childContentfulPostPostTextNode?: Maybe<ContentfulPostPostTextNodeFilterInput>;
 };
 
@@ -3127,6 +3130,7 @@ export type QueryContentfulPostArgs = {
   updatedAt?: Maybe<DateQueryOperatorInput>;
   sys?: Maybe<ContentfulPostSysFilterInput>;
   node_locale?: Maybe<StringQueryOperatorInput>;
+  tags?: Maybe<StringQueryOperatorInput>;
   childContentfulPostPostTextNode?: Maybe<ContentfulPostPostTextNodeFilterInput>;
 };
 
@@ -3557,13 +3561,79 @@ export type SitePageConnectionGroupArgs = {
 };
 
 export type SitePageContext = {
-  post?: Maybe<SitePageContextPost>;
   site?: Maybe<SitePageContextSite>;
+  post?: Maybe<SitePageContextPost>;
+  prev?: Maybe<SitePageContextPrev>;
+  next?: Maybe<SitePageContextNext>;
 };
 
 export type SitePageContextFilterInput = {
-  post?: Maybe<SitePageContextPostFilterInput>;
   site?: Maybe<SitePageContextSiteFilterInput>;
+  post?: Maybe<SitePageContextPostFilterInput>;
+  prev?: Maybe<SitePageContextPrevFilterInput>;
+  next?: Maybe<SitePageContextNextFilterInput>;
+};
+
+export type SitePageContextNext = {
+  id?: Maybe<Scalars['String']>;
+  title?: Maybe<Scalars['String']>;
+  published?: Maybe<Scalars['Date']>;
+  post?: Maybe<SitePageContextNextPost>;
+  thumbnail?: Maybe<SitePageContextNextThumbnail>;
+};
+
+export type SitePageContextNextFilterInput = {
+  id?: Maybe<StringQueryOperatorInput>;
+  title?: Maybe<StringQueryOperatorInput>;
+  published?: Maybe<DateQueryOperatorInput>;
+  post?: Maybe<SitePageContextNextPostFilterInput>;
+  thumbnail?: Maybe<SitePageContextNextThumbnailFilterInput>;
+};
+
+export type SitePageContextNextPost = {
+  childMarkdownRemark?: Maybe<SitePageContextNextPostChildMarkdownRemark>;
+};
+
+export type SitePageContextNextPostChildMarkdownRemark = {
+  html?: Maybe<Scalars['String']>;
+  excerpt?: Maybe<Scalars['String']>;
+};
+
+export type SitePageContextNextPostChildMarkdownRemarkFilterInput = {
+  html?: Maybe<StringQueryOperatorInput>;
+  excerpt?: Maybe<StringQueryOperatorInput>;
+};
+
+export type SitePageContextNextPostFilterInput = {
+  childMarkdownRemark?: Maybe<SitePageContextNextPostChildMarkdownRemarkFilterInput>;
+};
+
+export type SitePageContextNextThumbnail = {
+  description?: Maybe<Scalars['String']>;
+  fixed?: Maybe<SitePageContextNextThumbnailFixed>;
+};
+
+export type SitePageContextNextThumbnailFilterInput = {
+  description?: Maybe<StringQueryOperatorInput>;
+  fixed?: Maybe<SitePageContextNextThumbnailFixedFilterInput>;
+};
+
+export type SitePageContextNextThumbnailFixed = {
+  width?: Maybe<Scalars['Int']>;
+  height?: Maybe<Scalars['Int']>;
+  src?: Maybe<Scalars['String']>;
+  srcSetWebp?: Maybe<Scalars['String']>;
+  srcSet?: Maybe<Scalars['String']>;
+  aspectRatio?: Maybe<Scalars['Float']>;
+};
+
+export type SitePageContextNextThumbnailFixedFilterInput = {
+  width?: Maybe<IntQueryOperatorInput>;
+  height?: Maybe<IntQueryOperatorInput>;
+  src?: Maybe<StringQueryOperatorInput>;
+  srcSetWebp?: Maybe<StringQueryOperatorInput>;
+  srcSet?: Maybe<StringQueryOperatorInput>;
+  aspectRatio?: Maybe<FloatQueryOperatorInput>;
 };
 
 export type SitePageContextPost = {
@@ -3619,6 +3689,8 @@ export type SitePageContextPostThumbnailFilterInput = {
 };
 
 export type SitePageContextPostThumbnailFixed = {
+  width?: Maybe<Scalars['Int']>;
+  height?: Maybe<Scalars['Int']>;
   src?: Maybe<Scalars['String']>;
   srcSetWebp?: Maybe<Scalars['String']>;
   srcSet?: Maybe<Scalars['String']>;
@@ -3626,6 +3698,70 @@ export type SitePageContextPostThumbnailFixed = {
 };
 
 export type SitePageContextPostThumbnailFixedFilterInput = {
+  width?: Maybe<IntQueryOperatorInput>;
+  height?: Maybe<IntQueryOperatorInput>;
+  src?: Maybe<StringQueryOperatorInput>;
+  srcSetWebp?: Maybe<StringQueryOperatorInput>;
+  srcSet?: Maybe<StringQueryOperatorInput>;
+  aspectRatio?: Maybe<FloatQueryOperatorInput>;
+};
+
+export type SitePageContextPrev = {
+  id?: Maybe<Scalars['String']>;
+  title?: Maybe<Scalars['String']>;
+  published?: Maybe<Scalars['Date']>;
+  post?: Maybe<SitePageContextPrevPost>;
+  thumbnail?: Maybe<SitePageContextPrevThumbnail>;
+};
+
+export type SitePageContextPrevFilterInput = {
+  id?: Maybe<StringQueryOperatorInput>;
+  title?: Maybe<StringQueryOperatorInput>;
+  published?: Maybe<DateQueryOperatorInput>;
+  post?: Maybe<SitePageContextPrevPostFilterInput>;
+  thumbnail?: Maybe<SitePageContextPrevThumbnailFilterInput>;
+};
+
+export type SitePageContextPrevPost = {
+  childMarkdownRemark?: Maybe<SitePageContextPrevPostChildMarkdownRemark>;
+};
+
+export type SitePageContextPrevPostChildMarkdownRemark = {
+  html?: Maybe<Scalars['String']>;
+  excerpt?: Maybe<Scalars['String']>;
+};
+
+export type SitePageContextPrevPostChildMarkdownRemarkFilterInput = {
+  html?: Maybe<StringQueryOperatorInput>;
+  excerpt?: Maybe<StringQueryOperatorInput>;
+};
+
+export type SitePageContextPrevPostFilterInput = {
+  childMarkdownRemark?: Maybe<SitePageContextPrevPostChildMarkdownRemarkFilterInput>;
+};
+
+export type SitePageContextPrevThumbnail = {
+  description?: Maybe<Scalars['String']>;
+  fixed?: Maybe<SitePageContextPrevThumbnailFixed>;
+};
+
+export type SitePageContextPrevThumbnailFilterInput = {
+  description?: Maybe<StringQueryOperatorInput>;
+  fixed?: Maybe<SitePageContextPrevThumbnailFixedFilterInput>;
+};
+
+export type SitePageContextPrevThumbnailFixed = {
+  width?: Maybe<Scalars['Int']>;
+  height?: Maybe<Scalars['Int']>;
+  src?: Maybe<Scalars['String']>;
+  srcSetWebp?: Maybe<Scalars['String']>;
+  srcSet?: Maybe<Scalars['String']>;
+  aspectRatio?: Maybe<Scalars['Float']>;
+};
+
+export type SitePageContextPrevThumbnailFixedFilterInput = {
+  width?: Maybe<IntQueryOperatorInput>;
+  height?: Maybe<IntQueryOperatorInput>;
   src?: Maybe<StringQueryOperatorInput>;
   srcSetWebp?: Maybe<StringQueryOperatorInput>;
   srcSet?: Maybe<StringQueryOperatorInput>;
@@ -3669,15 +3805,23 @@ export type SitePageFieldsEnum =
   'componentChunkName' |
   'matchPath' |
   'isCreatedByStatefulCreatePages' |
-  'context___post___id' |
-  'context___post___title' |
-  'context___post___published' |
-  'context___post___thumbnail___description' |
   'context___site___siteMetadata___title' |
   'context___site___siteMetadata___siteUrl' |
   'context___site___siteMetadata___author' |
   'context___site___siteMetadata___twitter' |
   'context___site___siteMetadata___github' |
+  'context___post___id' |
+  'context___post___title' |
+  'context___post___published' |
+  'context___post___thumbnail___description' |
+  'context___prev___id' |
+  'context___prev___title' |
+  'context___prev___published' |
+  'context___prev___thumbnail___description' |
+  'context___next___id' |
+  'context___next___title' |
+  'context___next___published' |
+  'context___next___thumbnail___description' |
   'pluginCreator___id' |
   'pluginCreator___parent___id' |
   'pluginCreator___parent___parent___id' |
@@ -4260,7 +4404,7 @@ export type IndexQuery = { site: Maybe<{ siteMetadata: Maybe<Pick<SiteSiteMetada
       Pick<ContentfulPost, 'id' | 'title' | 'published'>
       & { post: Maybe<{ childMarkdownRemark: Maybe<Pick<MarkdownRemark, 'html' | 'excerpt'>> }>, thumbnail: Maybe<(
         Pick<ContentfulAsset, 'description'>
-        & { fixed: Maybe<Pick<ContentfulFixed, 'src' | 'srcSetWebp' | 'srcSet' | 'aspectRatio'>> }
+        & { fixed: Maybe<Pick<ContentfulFixed, 'width' | 'height' | 'src' | 'srcSetWebp' | 'srcSet' | 'aspectRatio'>> }
       )> }
     )> } };
 

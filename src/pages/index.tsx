@@ -16,7 +16,7 @@ export const pageQuery = graphql`
         siteUrl
       }
     }
-    allContentfulPost {
+    allContentfulPost(sort: { order: DESC, fields: published }) {
       nodes {
         id
         title
@@ -30,6 +30,8 @@ export const pageQuery = graphql`
         thumbnail {
           description
           fixed {
+            width
+            height
             src
             srcSetWebp
             srcSet

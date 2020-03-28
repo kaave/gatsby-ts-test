@@ -21,7 +21,7 @@ type Props = { children: React.ReactNode };
 export const Layout = React.memo(({ children }: Props) => (
   <ErrorBoundary>
     <Header />
-    <main id="main" className="main" role="main">
+    <main id="main" className="Main" role="main">
       {children}
     </main>
   </ErrorBoundary>
